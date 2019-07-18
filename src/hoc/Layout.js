@@ -6,10 +6,12 @@ class Layout extends Component {
     render() {
 
         return(
-            <main>
-                <Navbar/>
-                {this.props.children}
-            </main>
+           
+                <main>
+                    <Navbar/>
+                    {this.props.children}
+                </main>
+           
         )
     }
 }

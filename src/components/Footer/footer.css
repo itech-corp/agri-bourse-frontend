@@ -1,0 +1,16 @@
+a{
+    text-decoration: none!important;
+    color: #8b9191!important;
+}
+a:hover{
+    color: white!important;
+}
+li{
+    list-style-type: none;
+}
+#icons{background:url(../../assets/images/line_hor1.png) 23px 0 no-repeat;padding-top:1px}
+#icons li{background:url(../../assets/images/line_hor1.png) 23px bottom no-repeat;line-height:29px}
+#icons a{color:#696969;text-decoration:none;font-style:normal;display:inline-block}
+#icons img{float:left;margin-right:9px;margin-top:5px}
+#icons a:hover{color:#fff
+}

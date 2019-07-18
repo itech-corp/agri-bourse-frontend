@@ -9,7 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import Brand from './Brand/Brand';
-
+import Drawer from './Drawer/swipeDraw';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -36,10 +36,14 @@ const useStyles = makeStyles(theme => ({
     },
     marginLeft: 0,
     width: '100%',
+    [theme.breakpoints.down(700)]: {
+       display:'none',
+      },
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
       width: 'auto',
     },
+
   },
   searchIcon: {
     width: theme.spacing(7),
@@ -63,7 +67,28 @@ const useStyles = makeStyles(theme => ({
         width: 200,
       },
     },
+   
   },
+  menu:{
+    marginLeft:'auto',
+    marginRight:0,
+    [theme.breakpoints.down(700)]: {
+        margin:'auto',
+       },
+    [theme.breakpoints.down(500)]: {
+        display:'none',
+       },   
+  },
+  drawer:{
+      marginLeft:'auto',
+      marginRight:0,
+    [theme.breakpoints.down(499)]: {
+        display:'?',
+       },
+       [theme.breakpoints.up(500)]: {
+        display:'none',
+       },
+  }
 }));
 
 export default function NavigationBar() {
@@ -71,7 +96,7 @@ export default function NavigationBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.AppBar} position="static">
+      <AppBar  className={classes.AppBar} position="static">
         <Toolbar>
           <IconButton
             edge="start"
@@ -81,17 +106,7 @@ export default function NavigationBar() {
           >
            <Brand/>
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
-          <div>
-            <Button color="inherit">Acceuil</Button>
-            <Button color="inherit">Connexion</Button>
-            <Button color="inherit">Inscription</Button>
-            <Button color="inherit">Incubateur</Button>
-            <Button color="inherit">Contacts</Button>
-            <Button color="inherit">A propos</Button>
-          </div>
+         
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -104,6 +119,15 @@ export default function NavigationBar() {
               }}
               inputProps={{ 'aria-label': 'Search' }}
             />
+          </div>
+          <div  className={classes.drawer}>
+              <Drawer/>
+          </div>
+          <div className={classes.menu}>
+            <Button color="secondary">Acceuil</Button>
+            <Button color="inherit">Connexion</Button>
+            <Button color="inherit">Contacts</Button>
+            <Button color="inherit">A propos</Button>
           </div>
           
         </Toolbar>
